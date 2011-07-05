@@ -1,4 +1,16 @@
 Limonero::Application.routes.draw do
+  resources :pays
+
+  resources :debts
+
+  resources :payments
+
+  resources :people
+
+  resources :lots
+
+  resources :blocks
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

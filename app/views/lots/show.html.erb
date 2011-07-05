@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Block:</b>
+  <%= @lot.block_id %>
+</p>
+
+<p>
+  <b>Direccion:</b>
+  <%= @lot.direccion %>
+</p>
+
+<p>
+  <b>Superficie:</b>
+  <%= @lot.superficie %>
+</p>
+
+<p>
+  <b>Payment:</b>
+  <%= @lot.payment_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_lot_path(@lot) %> |
+<%= link_to 'Back', lots_path %>

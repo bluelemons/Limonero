@@ -1,0 +1,29 @@
+<h1>Listing lots</h1>
+
+<table>
+  <tr>
+    <th>Block</th>
+    <th>Direccion</th>
+    <th>Superficie</th>
+    <th>Payment</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @lots.each do |lot| %>
+  <tr>
+    <td><%= lot.block_id %></td>
+    <td><%= lot.direccion %></td>
+    <td><%= lot.superficie %></td>
+    <td><%= lot.payment_id %></td>
+    <td><%= link_to 'Show', lot %></td>
+    <td><%= link_to 'Edit', edit_lot_path(lot) %></td>
+    <td><%= link_to 'Destroy', lot, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Lot', new_lot_path %>
