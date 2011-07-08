@@ -31,9 +31,17 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
-
 group :development, :test do
+  gem "nifty-generators"
+  gem 'dbf'
+  gem 'autotest'
   gem 'rspec-rails', '~> 2.5'
+  gem 'factory_girl_rails'
+  gem 'forgery'
+  gem 'guard-rspec'
+  gem 'rb-inotify'
+  gem 'libnotify'
+  gem 'guard-livereload'
 end
 
 group :test do
