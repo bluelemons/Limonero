@@ -10,12 +10,38 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110705004122) do
+ActiveRecord::Schema.define(:version => 20110708171828) do
 
-  create_table "blocks", :force => true do |t|
+  create_table "addresses", :force => true do |t|
+    t.string   "calle"
+    t.string   "numero"
+    t.string   "otro"
+    t.string   "telefono"
+    t.integer  "person_id"
+    t.integer  "taddress_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "avaluos", :force => true do |t|
+    t.integer  "ncuotas"
+    t.integer  "couta_cents"
+    t.string   "cuota_currency"
+    t.string   "interes"
+    t.integer  "lot_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "civils", :force => true do |t|
     t.string   "name"
-    t.string   "ubicacion"
-    t.integer  "superficie"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "contratos", :force => true do |t|
+    t.integer  "payment_id"
+    t.integer  "person_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -23,25 +49,42 @@ ActiveRecord::Schema.define(:version => 20110705004122) do
   create_table "debts", :force => true do |t|
     t.integer  "payment_id"
     t.integer  "monto_cents"
-    t.string   "monto_currency", :limit => 3
+    t.string   "monto_currency"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "localidads", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "lots", :force => true do |t|
-    t.integer  "block_id"
-    t.string   "direccion"
-    t.integer  "superficie"
-    t.integer  "payment_id"
+    t.string   "manzana"
+    t.string   "loteo"
+    t.string   "parcela"
+    t.string   "partida"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "matrimonios", :force => true do |t|
+    t.date     "nupcias"
+    t.integer  "person_id"
+    t.integer  "person_id1"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "nacionalidads", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "payments", :force => true do |t|
-    t.integer  "cuotas"
     t.date     "inicio"
-    t.integer  "person_id"
-    t.float    "interes"
+    t.integer  "avaluo_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -50,15 +93,32 @@ ActiveRecord::Schema.define(:version => 20110705004122) do
     t.integer  "debt_id"
     t.date     "fecha_de_pago"
     t.integer  "monto_cents"
-    t.string   "monto_currency", :limit => 3
+    t.string   "monto_currency"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "people", :force => true do |t|
+    t.string   "apellido"
+    t.string   "apellido_materno"
+    t.string   "nombre"
+    t.date     "nacimiento"
+    t.string   "documento"
+    t.integer  "nacionalidad_id"
+    t.integer  "civil_id"
+    t.text     "observaciones"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "taddresses", :force => true do |t|
     t.string   "name"
-    t.string   "direccion"
-    t.string   "localidad"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tdocs", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
