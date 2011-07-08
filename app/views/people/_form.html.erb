@@ -12,16 +12,36 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.label :apellido %><br />
+    <%= f.text_field :apellido %>
   </div>
   <div class="field">
-    <%= f.label :direccion %><br />
-    <%= f.text_field :direccion %>
+    <%= f.label :apellido_materno %><br />
+    <%= f.text_field :apellido_materno %>
   </div>
   <div class="field">
-    <%= f.label :localidad %><br />
-    <%= f.text_field :localidad %>
+    <%= f.label :nombre %><br />
+    <%= f.text_field :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :nacimiento %><br />
+    <%= f.date_select :nacimiento %>
+  </div>
+  <div class="field">
+    <%= f.label :documento %><br />
+    <%= f.text_field :documento %>
+  </div>
+  <div class="field">
+    <%= f.label :nacionalidad_id %><br />
+    <%= f.number_field :nacionalidad_id %>
+  </div>
+  <div class="field">
+    <%= f.label :civil_id %><br />
+    <%= f.number_field :civil_id %>
+  </div>
+  <div class="field">
+    <%= f.label :observaciones %><br />
+    <%= f.text_area :observaciones %>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -1,0 +1,29 @@
+<%= form_for(@matrimonio) do |f| %>
+  <% if @matrimonio.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@matrimonio.errors.count, "error") %> prohibited this matrimonio from being saved:</h2>
+
+      <ul>
+      <% @matrimonio.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nupcias %><br />
+    <%= f.date_select :nupcias %>
+  </div>
+  <div class="field">
+    <%= f.label :person_id %><br />
+    <%= f.number_field :person_id %>
+  </div>
+  <div class="field">
+    <%= f.label :person_id1 %><br />
+    <%= f.number_field :person_id1 %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

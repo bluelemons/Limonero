@@ -3,9 +3,7 @@ require 'spec_helper'
 describe "payments/edit.html.erb" do
   before(:each) do
     @payment = assign(:payment, stub_model(Payment,
-      :cuotas => 1,
-      :person_id => 1,
-      :interes => 1.5
+      :avaluo_id => 1
     ))
   end
 
@@ -14,9 +12,7 @@ describe "payments/edit.html.erb" do
 
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     assert_select "form", :action => payments_path(@payment), :method => "post" do
-      assert_select "input#payment_cuotas", :name => "payment[cuotas]"
-      assert_select "input#payment_person_id", :name => "payment[person_id]"
-      assert_select "input#payment_interes", :name => "payment[interes]"
+      assert_select "input#payment_avaluo_id", :name => "payment[avaluo_id]"
     end
   end
 end

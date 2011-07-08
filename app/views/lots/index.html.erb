@@ -2,10 +2,10 @@
 
 <table>
   <tr>
-    <th>Block</th>
-    <th>Direccion</th>
-    <th>Superficie</th>
-    <th>Payment</th>
+    <th>Manzana</th>
+    <th>Loteo</th>
+    <th>Parcela</th>
+    <th>Partida</th>
     <th></th>
     <th></th>
     <th></th>
@@ -13,10 +13,10 @@
 
 <% @lots.each do |lot| %>
   <tr>
-    <td><%= lot.block_id %></td>
-    <td><%= lot.direccion %></td>
-    <td><%= lot.superficie %></td>
-    <td><%= lot.payment_id %></td>
+    <td><%= lot.manzana %></td>
+    <td><%= lot.loteo %></td>
+    <td><%= lot.parcela %></td>
+    <td><%= lot.partida %></td>
     <td><%= link_to 'Show', lot %></td>
     <td><%= link_to 'Edit', edit_lot_path(lot) %></td>
     <td><%= link_to 'Destroy', lot, confirm: 'Are you sure?', method: :delete %></td>

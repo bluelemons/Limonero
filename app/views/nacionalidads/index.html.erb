@@ -1,0 +1,23 @@
+<h1>Listing nacionalidads</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @nacionalidads.each do |nacionalidad| %>
+  <tr>
+    <td><%= nacionalidad.name %></td>
+    <td><%= link_to 'Show', nacionalidad %></td>
+    <td><%= link_to 'Edit', edit_nacionalidad_path(nacionalidad) %></td>
+    <td><%= link_to 'Destroy', nacionalidad, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Nacionalidad', new_nacionalidad_path %>

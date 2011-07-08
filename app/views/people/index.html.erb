@@ -2,9 +2,14 @@
 
 <table>
   <tr>
-    <th>Name</th>
-    <th>Direccion</th>
-    <th>Localidad</th>
+    <th>Apellido</th>
+    <th>Apellido materno</th>
+    <th>Nombre</th>
+    <th>Nacimiento</th>
+    <th>Documento</th>
+    <th>Nacionalidad</th>
+    <th>Civil</th>
+    <th>Observaciones</th>
     <th></th>
     <th></th>
     <th></th>
@@ -12,9 +17,14 @@
 
 <% @people.each do |person| %>
   <tr>
-    <td><%= person.name %></td>
-    <td><%= person.direccion %></td>
-    <td><%= person.localidad %></td>
+    <td><%= person.apellido %></td>
+    <td><%= person.apellido_materno %></td>
+    <td><%= person.nombre %></td>
+    <td><%= person.nacimiento %></td>
+    <td><%= person.documento %></td>
+    <td><%= person.nacionalidad_id %></td>
+    <td><%= person.civil_id %></td>
+    <td><%= person.observaciones %></td>
     <td><%= link_to 'Show', person %></td>
     <td><%= link_to 'Edit', edit_person_path(person) %></td>
     <td><%= link_to 'Destroy', person, confirm: 'Are you sure?', method: :delete %></td>

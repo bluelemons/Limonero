@@ -10,6 +10,15 @@ gem 'mysql2'
 # Asset template engines
 gem 'sass-rails', "~> 3.1.0.rc"
 gem 'coffee-script'
+
+#-------------------------------------------------------------------
+#supuestamente lo arreglan para 3.1
+#para el javascripts runtime
+gem 'therubyracer'
+#para el error de-Ku
+gem 'sprockets', :git => 'git://github.com/sstephenson/sprockets.git'
+#-------------------------------------------------------------------
+
 gem 'uglifier'
 
 gem 'jquery-rails'

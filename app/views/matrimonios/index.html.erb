@@ -1,0 +1,27 @@
+<h1>Listing matrimonios</h1>
+
+<table>
+  <tr>
+    <th>Nupcias</th>
+    <th>Person</th>
+    <th>Person id1</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @matrimonios.each do |matrimonio| %>
+  <tr>
+    <td><%= matrimonio.nupcias %></td>
+    <td><%= matrimonio.person_id %></td>
+    <td><%= matrimonio.person_id1 %></td>
+    <td><%= link_to 'Show', matrimonio %></td>
+    <td><%= link_to 'Edit', edit_matrimonio_path(matrimonio) %></td>
+    <td><%= link_to 'Destroy', matrimonio, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Matrimonio', new_matrimonio_path %>

@@ -4,16 +4,16 @@ describe "lots/index.html.erb" do
   before(:each) do
     assign(:lots, [
       stub_model(Lot,
-        :block_id => 1,
-        :direccion => "Direccion",
-        :superficie => 1,
-        :payment_id => 1
+        :manzana => "Manzana",
+        :loteo => "Loteo",
+        :parcela => "Parcela",
+        :partida => "Partida"
       ),
       stub_model(Lot,
-        :block_id => 1,
-        :direccion => "Direccion",
-        :superficie => 1,
-        :payment_id => 1
+        :manzana => "Manzana",
+        :loteo => "Loteo",
+        :parcela => "Parcela",
+        :partida => "Partida"
       )
     ])
   end
@@ -21,12 +21,12 @@ describe "lots/index.html.erb" do
   it "renders a list of lots" do
     render
     # Run the generator again with the --webrat flag if you want to use webrat matchers
-    assert_select "tr>td", :text => 1.to_s, :count => 2
+    assert_select "tr>td", :text => "Manzana".to_s, :count => 2
     # Run the generator again with the --webrat flag if you want to use webrat matchers
-    assert_select "tr>td", :text => "Direccion".to_s, :count => 2
+    assert_select "tr>td", :text => "Loteo".to_s, :count => 2
     # Run the generator again with the --webrat flag if you want to use webrat matchers
-    assert_select "tr>td", :text => 1.to_s, :count => 2
+    assert_select "tr>td", :text => "Parcela".to_s, :count => 2
     # Run the generator again with the --webrat flag if you want to use webrat matchers
-    assert_select "tr>td", :text => 1.to_s, :count => 2
+    assert_select "tr>td", :text => "Partida".to_s, :count => 2
   end
 end
