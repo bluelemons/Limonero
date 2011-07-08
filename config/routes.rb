@@ -1,4 +1,22 @@
 Limonero::Application.routes.draw do
+  resources :avaluos
+
+  resources :contratos
+
+  resources :taddresses
+
+  resources :matrimonios
+
+  resources :addresses
+
+  resources :tdocs
+
+  resources :civils
+
+  resources :localidads
+
+  resources :nacionalidads
+
   resources :pays
 
   resources :debts
@@ -8,8 +26,6 @@ Limonero::Application.routes.draw do
   resources :people
 
   resources :lots
-
-  resources :blocks
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -68,3 +84,4 @@ Limonero::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))'
 end
+
