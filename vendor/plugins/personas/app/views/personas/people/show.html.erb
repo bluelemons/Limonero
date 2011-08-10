@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Nombre:</b>
+  <%= @person.name %>
+</p>
+
+<p>
+  <b>Documento:</b>
+  <%= @person.tdoc.try :name %> <%= @person.doc %>
+</p>
+
+<p>
+  <b>Nacimineto:</b>
+  <%= @person.born %>
+  <%#= @person.city.try :name %>
+</p>
+
+<p>
+  <b>Fallecimiento:</b>
+  <%= @person.dead %>
+</p>
+
+<p>
+  <b>Estado civil:</b>
+  <%= @person.civil.try :name %>
+</p>
+
+<p>
+  <b>Observations:</b>
+  <%= @person.observations %>
+</p>
+
+
+<%= render :partial =>"/personas/addresses/addresses",:locals=>{:@addresses => @person.addresses} %>
+<%= link_to 'Nueva ubicacion de contacto', new_person_address_path(@person) %> |
+<%= link_to 'Edit', edit_person_path(@person) %> |
+<%= link_to 'Back', people_path %>

@@ -3,29 +3,16 @@ Limonero::Application.routes.draw do
 
   resources :contratos
 
-  resources :taddresses
-
-  resources :matrimonios
-
-  resources :addresses
-
-  resources :tdocs
-
-  resources :civils
-
-  resources :localidads
-
-  resources :nacionalidads
-
   resources :pays
 
   resources :debts
 
   resources :payments
 
-  resources :people
-
   resources :lots
+
+  mount Largentinas::Engine => "/largentinas"
+  mount Personas::Engine => "/personas"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

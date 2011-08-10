@@ -1,0 +1,21 @@
+<%= semantic_form_for @person do |form| %>
+  <% if @person.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@person.errors.count, "error") %> prohibited this person from being saved:</h2>
+
+      <ul>
+      <% @person.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form.inputs :name, :born, :doc%>
+  <%= form.input :tdoc,:collection => Personas::Tdoc.all %>
+  <%= form.input :civil,:collection => Personas::Civil.all %>
+  <%= form.input :sexo,:collection => Personas::Sexo.all,:as=>:radio %>
+  <%= form.inputs :observations %>
+  <%= form.buttons :commit %>
+<% end %>
+

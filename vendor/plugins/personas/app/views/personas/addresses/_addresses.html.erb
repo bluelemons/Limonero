@@ -1,0 +1,22 @@
+<table>
+  <tr>
+    <th>Direccion</th>
+    <th>Telefono</th>
+    <th>Email</th>
+    <th>Tipo</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @addresses.each do |address| %>
+  <tr>
+    <td><%= address.street %> <%= address.number %> <%= address.other %></td>
+    <td><%= address.telefono %></td>
+    <td><%= address.email %></td>
+    <td><%= address.taddress.try :name %></td>
+    <td><%= link_to 'Edit', edit_person_address_path(address.person) %></td>
+    <td><%#= link_to 'Destroy', address, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>

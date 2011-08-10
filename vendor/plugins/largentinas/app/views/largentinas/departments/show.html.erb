@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @department.name %>
+</p>
+
+<p>
+  <b>Lat:</b>
+  <%= @department.lat %>
+</p>
+
+<p>
+  <b>Lng:</b>
+  <%= @department.lng %>
+</p>
+
+<p>
+  <b>Place:</b>
+  <%= @department.place_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_department_path(@department) %> |
+<%= link_to 'Back', departments_path %>
