@@ -20,6 +20,8 @@
   <%= @lot.partida %>
 </p>
 
+<%= render :partial => "avaluos/avaluo",:locals=>{:@avaluo => @lot.avaluos.last} %>
 
+<%= link_to 'Actualizar precio', new_lot_avaluo_path(@lot) %> |
 <%= link_to 'Edit', edit_lot_path(@lot) %> |
 <%= link_to 'Back', lots_path %>

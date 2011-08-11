@@ -1,0 +1,17 @@
+<table>
+  <tr>
+    <th>Ncuotas</th>
+    <th>Couta cents</th>
+    <th>Cuota currency</th>
+    <th>Interes</th>
+  </tr>
+
+<% @avaluos.each do |avaluo| %>
+  <tr>
+    <td><%= avaluo.ncuotas %></td>
+    <td><%= avaluo.couta_cents %></td>
+    <td><%= avaluo.cuota_currency %></td>
+    <td><%= avaluo.interes %></td>
+  </tr>
+<% end %>
+</table>
