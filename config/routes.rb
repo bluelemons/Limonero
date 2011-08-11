@@ -1,5 +1,4 @@
-Limonero::Application.routes.draw do
-  resources :avaluos
+Limonero::Application.routes.draw do  
 
   resources :contratos
 
@@ -9,7 +8,9 @@ Limonero::Application.routes.draw do
 
   resources :payments
 
-  resources :lots
+  resources :lots do
+    resources :avaluos
+  end
 
   mount Largentinas::Engine => "/largentinas"
   mount Personas::Engine => "/personas"
