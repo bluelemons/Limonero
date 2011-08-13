@@ -25,6 +25,8 @@ class ContratosController < ApplicationController
   # GET /contratos/new.json
   def new
     @contrato = Contrato.new
+    @contrato.payment_id = params[:payment_id]
+    @contrato.build_person
 
     respond_to do |format|
       format.html # new.html.erb
