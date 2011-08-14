@@ -1,25 +1,7 @@
 <h1>Listing payments</h1>
-
-<table>
-  <tr>
-    <th>Inicio</th>
-    <th>Avaluo</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @payments.each do |payment| %>
-  <tr>
-    <td><%= payment.inicio %></td>
-    <td><%= payment.avaluo_id %></td>
-    <td><%= link_to 'Show', payment %></td>
-    <td><%= link_to 'Edit', edit_payment_path(payment) %></td>
-    <td><%= link_to 'Destroy', payment, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
+<%= render :partial => "payments/search"%>
+<%= render :partial => "payments/payments"%>
 
 <br />
 
-<%= link_to 'New Payment', new_payment_path %>
+<%#= link_to 'New Payment', new_payment_path %>

@@ -26,6 +26,7 @@ class PaysController < ApplicationController
   # GET /pays/new.json
   def new
     @pay = Pay.new
+    @pay.payment_id = params[:payment_id]
 
     respond_to do |format|
       format.html # new.html.erb
@@ -45,7 +46,7 @@ class PaysController < ApplicationController
 
     respond_to do |format|
       if @pay.save
-        format.html { redirect_to @pay, notice: 'Pay was successfully created.' }
+        format.html { redirect_to @pay.payment, notice: 'Pay was successfully created.' }
         format.json { render json: @pay, status: :created, location: @pay }
       else
         format.html { render action: "new" }
