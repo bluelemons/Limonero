@@ -2,7 +2,8 @@ class PaysController < ApplicationController
   # GET /pays
   # GET /pays.json
   def index
-    @pays = Pay.all
+    @search = Pay.search(params[:search]).where(:payment_id=>params[:payment_id])
+    @pays = @search.page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
