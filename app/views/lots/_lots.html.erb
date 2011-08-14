@@ -1,0 +1,36 @@
+<table>
+  <tr>
+    <th>Manzana</th>
+    <th>Loteo</th>
+    <th>Parcela</th>
+    <th>Partida</th>
+    <th>Estado</th>
+    <th>Titular</th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @lots.each do |lot| %>
+  <tr>
+    <td><%= lot.manzana %></td>
+    <td><%= lot.loteo %></td>
+    <td><%= lot.parcela %></td>
+    <td><%= lot.partida %></td>
+    <td><%= lot.estado %></td>
+    <td><%= lot.titular %></td>
+    <td><%= link_to 'Detalles', lot %></td>
+    <td><%= link_to 'Editar', edit_lot_path(lot) %></td>
+    <% if lot.pagable?%>
+      <td><%= link_to 'Ver pagos', payment_pays_path(lot.payment_actual) %></td>
+      <td><%= link_to 'Generar Pago', new_payment_pay_path(lot.payment_actual) %></td>
+    <% else %>
+      <td></td>
+      <td></td>
+    <% end %>
+    <td><%= link_to 'Borrar', lot, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>

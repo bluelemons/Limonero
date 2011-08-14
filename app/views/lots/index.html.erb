@@ -1,29 +1,6 @@
-<h1>Listing lots</h1>
+<h1>Lotes</h1>
 
-<table>
-  <tr>
-    <th>Manzana</th>
-    <th>Loteo</th>
-    <th>Parcela</th>
-    <th>Partida</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<%= render :partial => "lots/search" %>
+<%= link_to 'Cargar un nuevo Lote', new_lot_path %>
+<%= render :partial => "lots/lots" %>
 
-<% @lots.each do |lot| %>
-  <tr>
-    <td><%= lot.manzana %></td>
-    <td><%= lot.loteo %></td>
-    <td><%= lot.parcela %></td>
-    <td><%= lot.partida %></td>
-    <td><%= link_to 'Show', lot %></td>
-    <td><%= link_to 'Edit', edit_lot_path(lot) %></td>
-    <td><%= link_to 'Destroy', lot, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Lot', new_lot_path %>
