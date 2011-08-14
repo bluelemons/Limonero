@@ -2,7 +2,8 @@ class LotsController < ApplicationController
   # GET /lots
   # GET /lots.json
   def index
-    @lots = Lot.all
+    @search = Lot.search(params[:search])
+    @lots = @search.page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
