@@ -2,7 +2,6 @@
 
 <table>
   <tr>
-    <th>Debt</th>
     <th>Fecha de pago</th>
     <th>Monto cents</th>
     <th>Monto currency</th>
@@ -13,17 +12,16 @@
 
 <% @pays.each do |pay| %>
   <tr>
-    <td><%= pay.debt_id %></td>
     <td><%= pay.fecha_de_pago %></td>
     <td><%= pay.monto_cents %></td>
     <td><%= pay.monto_currency %></td>
-    <td><%= link_to 'Show', pay %></td>
-    <td><%= link_to 'Edit', edit_pay_path(pay) %></td>
-    <td><%= link_to 'Destroy', pay, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%#= link_to 'Show', pay %></td>
+    <td><%#= link_to 'Edit', edit_pay_path(pay) %></td>
+    <td><%#= link_to 'Destroy', pay, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Pay', new_pay_path %>
+<%#= link_to 'New Pay', new_pay_path %>
