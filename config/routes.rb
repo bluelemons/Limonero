@@ -1,15 +1,15 @@
 Limonero::Application.routes.draw do  
 
-  resources :contratos
-
-  resources :pays
-
   resources :debts
 
-  resources :payments
+  resources :payments do
+    resources :contratos  
+    resources :pays
+  end
 
   resources :lots do
     resources :avaluos
+    resources :payments
   end
 
   mount Largentinas::Engine => "/largentinas"
