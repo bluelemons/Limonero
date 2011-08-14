@@ -1,15 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Payment:</b>
-  <%= @contrato.payment_id %>
-</p>
-
-<p>
-  <b>Person:</b>
-  <%= @contrato.person_id %>
-</p>
-
+<%=render :partial =>"contratos/contrato"%>
 
 <%= link_to 'Edit', edit_contrato_path(@contrato) %> |
 <%= link_to 'Back', contratos_path %>

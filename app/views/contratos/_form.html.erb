@@ -1,24 +1,14 @@
-<%= form_for(@contrato) do |f| %>
-  <% if @contrato.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@contrato.errors.count, "error") %> prohibited this contrato from being saved:</h2>
-
-      <ul>
-      <% @contrato.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= semantic_form_for([:payment,@contrato]) do |f| %>
+  <%= error_message @contrato %>
 
   <div class="field">
-    <%= f.label :payment_id %><br />
-    <%= f.number_field :payment_id %>
+    <%= f.hidden_field :payment_id %>
   </div>
-  <div class="field">
-    <%= f.label :person_id %><br />
-    <%= f.number_field :person_id %>
-  </div>
+
+    <%= f.fields_for :person do |p| %>
+      <%= render :partial => "/personas/people/fields",:locals=>{:form=>p} %>
+    <% end %>
+
   <div class="actions">
     <%= f.submit %>
   </div>

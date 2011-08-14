@@ -1,0 +1,6 @@
+<p>
+  <b>Payment:</b>
+  <%= @contrato.payment_id %>
+</p>
+
+<%=render :partial => "personas/people/person",:locals => {:@person=>@contrato.person}%>
