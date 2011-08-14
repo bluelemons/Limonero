@@ -2,7 +2,8 @@ class PaymentsController < ApplicationController
   # GET /payments
   # GET /payments.json
   def index
-    @payments = Payment.all
+    @search = Payment.search(params[:search])
+    @payments = @search.page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -25,7 +26,8 @@ class PaymentsController < ApplicationController
   # GET /payments/new.json
   def new
     @payment = Payment.new
-
+    @lot = Lot.find(params[:lot_id])
+    @payment.avaluo = @lot.avaluos.last
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @payment }
