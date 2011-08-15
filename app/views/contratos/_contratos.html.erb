@@ -11,7 +11,7 @@
   <tr>
     <td><%= contrato.person.try(:tdoc).try(:name)%> <%=contrato.person.try(:doc)%></td>
     <td><%= contrato.person.try(:name) %></td>
-    <td><%#= link_to 'Show', contrato %></td>
+    <td><%= link_to 'Show', payment_contrato_path(contrato.payment,contrato) %></td>
     <td><%#= link_to 'Edit', edit_contrato_path(contrato) %></td>
     <td><%#= link_to 'Destroy', contrato, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
