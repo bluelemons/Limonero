@@ -7,9 +7,14 @@ gem 'rails', '3.1.0.rc5'
 
 gem 'mysql2'
 
-# Asset template engines
-gem 'sass-rails', "~> 3.1.0.rc"
-gem 'coffee-script'
+# Gems used only for assets and not required
+# in production environments by default.
+group :assets do
+  gem 'sass-rails', "~> 3.1.0.rc"
+  gem 'coffee-rails', "~> 3.1.0.rc"
+  gem 'uglifier'
+  gem 'compass', :git => 'git://github.com/chriseppstein/compass.git', :branch => 'rails31'
+end
 
 #------------------------------------------------------------------
 #supuestamente lo arreglan para 3.1
@@ -23,22 +28,23 @@ gem 'uglifier'
 
 gem 'jquery-rails'
 
-gem 'kaminari' #paginacion
+# paginacion
+gem 'kaminari' 
+# busqueda
 gem "meta_search","~> 1.1.x"
+# formularios
 gem 'formtastic'
 
-# Use unicorn as the web server
-# gem 'unicorn'
+# Use thin as the web server
+# gem 'thin'
 
 # Deploy with Capistrano
 # gem 'capistrano'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
+
 group :development, :test do
-  gem "nifty-generators"
-  gem 'dbf'
-  gem 'autotest'
   gem 'rspec-rails', '~> 2.5'
   gem 'factory_girl_rails'
   gem 'forgery'
