@@ -33,7 +33,7 @@ gem 'kaminari'
 # busqueda
 gem "meta_search","~> 1.1.x"
 # formularios
-gem 'formtastic'
+gem 'formtastic', '~> 2.0.0.rc1'
 
 # Use thin as the web server
 # gem 'thin'
