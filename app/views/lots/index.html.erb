@@ -1,6 +1,21 @@
-<h1>Lotes</h1>
+<header>
+	<div class="title">
+    <h1>Lotes</h1>
+    <p>Listado de lotes</p>
+  </div>
 
-<%= render :partial => "lots/search" %>
-<%= link_to 'Cargar un nuevo Lote', new_lot_path %>
-<%= render :partial => "lots/lots" %>
+  <div class="search-bar">
+    <%= render :partial => "lots/search" %>
+  </div>
+</header>
 
+<div class="big-sidebar">
+  <%= render :partial => "lots/lots" %>
+</div>
+
+<div class="details">
+</div>
+
+<footer>
+  <%= link_to 'Cargar un nuevo Lote', new_lot_path %>
+</footer>
