@@ -34,6 +34,8 @@ gem 'kaminari'
 gem "meta_search","~> 1.1.x"
 # formularios
 gem 'formtastic', '~> 2.0.0.rc1'
+# tablas
+gem "tabletastic"
 
 # Use thin as the web server
 # gem 'thin'
