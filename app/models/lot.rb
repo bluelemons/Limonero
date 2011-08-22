@@ -6,7 +6,7 @@ class Lot < ActiveRecord::Base
 
   # Si el lote está vendido, indica el nombre del comprador.
   def titular
-    payment_actual.try(:contratos).try(:first).try(:person).try(:name)
+    payment_actual.try(:contratos).try(:first).try(:person).try(:nombre)
   end
 
   # Indica si el lote fue vendido o no.
