@@ -28,3 +28,6 @@
   <b>Observations:</b>
   <%= @person.try(:observations) %>
 </p>
+
+<%= render :partial =>"/personas/addresses/addresses" %>
+<%= link_to 'Nueva ubicacion de contacto', new_person_address_path(@person) %>

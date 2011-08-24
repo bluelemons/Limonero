@@ -16,6 +16,7 @@ module Personas
     # GET /people/1.json
     def show
       @person = Person.find(params[:id])
+      @addresses = @person.addresses
   
       respond_to do |format|
         format.html # show.html.erb
