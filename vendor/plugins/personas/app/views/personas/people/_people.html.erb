@@ -1,22 +1,15 @@
-<table>
-  <tr>
-    <th>Nombre</th>
-    <th>Documento</th>
-    <th>Nacimiento</th>
-    <th>Civil</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @people.each do |person| %>
-  <tr>
-    <td><%= person.name %></td>
-    <td><%= person.tdoc.try :name %> <%= person.doc %></td>
-    <td><%= person.civil.try :name%></td>
-    <td><%= link_to 'Show', person %></td>
-    <td><%= link_to 'Edit', edit_person_path(person) %></td>
-    <td><%= link_to 'Destroy', person, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
+<%= paginate @people %>
+<%= table_for(@people) do |t| %>
+  <%= t.data do
+    t.cell(:name)
+    t.cell(:tdoc).try :name
+    t.cell(:civil).try :name 
+    t.cell(:acciones, :heading => "Acciones", :cell_html => {:class => "acciones"}) do |person|
+      cell_content = link_to 'Detalles', person
+      cell_content += " | "
+      cell_content += link_to 'Editar', edit_person_path(person)
+      cell_content += " | "
+      cell_content += link_to 'Destroy', person, confirm: 'Are you sure?', method: :delete
+    end
+  end %>
 <% end %>
-</table>

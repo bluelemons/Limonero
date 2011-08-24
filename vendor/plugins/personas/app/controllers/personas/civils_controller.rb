@@ -3,7 +3,8 @@ module Personas
     # GET /civils
     # GET /civils.json
     def index
-      @civils = Civil.all
+      @search = Civil.search(params[:search])
+      @civils = @search.page(params[:page])
   
       respond_to do |format|
         format.html # index.html.erb

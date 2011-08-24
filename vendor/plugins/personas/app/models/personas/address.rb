@@ -7,5 +7,9 @@ module Personas
     belongs_to :taddress
     belongs_to :person
     #belongs_to :city
+
+    def format
+      "#{street} #{number} #{other}"
+    end
   end
 end
