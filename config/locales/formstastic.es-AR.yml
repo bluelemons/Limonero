@@ -1,0 +1,24 @@
+es-AR:
+  person: 'persona'
+  people: 'personas'
+  formtastic:
+    :yes: 'Si'
+    :no: 'No'
+    :create: 'Crear'
+    :update: 'Modificar'
+    :required: 'requirido'
+
+    labels:
+      tdoc: "Tipo de documento"
+      doc: "Documento"
+      observations: "Observaciones"
+      name: "Nombre"
+      born: "Nacimiento"
+      name_eq: "Nombre es igual"
+      name_sw: "Nombre comienza con"
+      created_at_gt: "Creado despues de"
+      created_at_lt: "Creado antes de"
+      tdoc_id_eq: "Tipo de doc es igual"
+      doc_eq: "Numero es igual"
+      hidden_eq: "Incluir borrados"
+
