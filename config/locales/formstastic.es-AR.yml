@@ -1,6 +1,5 @@
 es-AR:
-  person: 'persona'
-  people: 'personas'
+
   formtastic:
     :yes: 'Si'
     :no: 'No'

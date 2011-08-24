@@ -1,0 +1,12 @@
+es-AR:
+  defatultabletastic:
+    models:
+      personas_address:
+        taddress: 'tipo de contacto'
+        format: 'domicilio'
+      personas_person:
+        name: 'nombre'
+        tdoc: 'tipo de documento'
+        doc: 'documento'
+        
+
