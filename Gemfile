@@ -7,7 +7,6 @@ gem 'rails', :git => 'git://github.com/rails/rails.git', :branch => "3-1-stable"
 
 gem 'mysql2'
 
-
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -28,7 +27,7 @@ gem 'therubyracer'
 gem 'jquery-rails'
 
 # paginacion
-gem 'kaminari' 
+gem 'kaminari'
 # busqueda
 gem "meta_search","~> 1.1.x"
 # formularios
@@ -57,6 +56,7 @@ group :development, :test do
 end
 
 group :test do
-  gem 'webrat'
+  gem 'capybara'
+  gem 'launchy'
   gem 'shoulda-matchers'
 end
