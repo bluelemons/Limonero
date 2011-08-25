@@ -1,6 +1,16 @@
 <p id="notice"><%= notice %></p>
 
-<%=render :partial =>"contratos/contrato"%>
+<p>
+  <b>Inicio:</b>
+  <%= @contrato.inicio %>
+</p>
 
-<%#= link_to 'Edit', edit_contrato_path(@contrato) %> |
-<%#= link_to 'Back', contratos_path %>
+<%= render :partial => "avaluos/avaluo", :locals=>{:@avaluo => @contrato.avaluo}%>
+<%#= link_to 'Agregar Persona', new_contrato_contrato_path(@contrato) %>
+
+<%#= render :partial => "contratos/contratos",:locals =>{:@contratos => @contrato.contratos} %>
+
+<%#= link_to 'Ver Pagos', contrato_pays_path(@contrato) %> |
+<%#= link_to 'Generar un pago', new_contrato_pay_path(@contrato) %> |
+<%= link_to 'Edit', edit_contrato_path(@contrato) %> |
+<%= link_to 'Back', contratos_path %>

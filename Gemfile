@@ -1,16 +1,17 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.0.rc5'
+# gem 'rails', '3.1.0.rc6'
 
 # Bundle edge Rails instead:
-# gem 'rails',     :git => 'git://github.com/rails/rails.git'
+gem 'rails', :git => 'git://github.com/rails/rails.git', :branch => "3-1-stable"
 
 gem 'mysql2'
+
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails', "~> 3.1.0.rc"
+  gem 'sass-rails', "  ~> 3.1.0.rc"
   gem 'coffee-rails', "~> 3.1.0.rc"
   gem 'uglifier'
   gem 'compass', :git => 'git://github.com/chriseppstein/compass.git', :branch => 'rails31'
@@ -20,11 +21,9 @@ end
 #supuestamente lo arreglan para 3.1
 #para el javascripts runtime
 gem 'therubyracer'
-#para el error de-Ku
-gem 'sprockets', :git => 'git://github.com/sstephenson/sprockets.git'
-#-------------------------------------------------------------------
 
-gem 'uglifier'
+# gem 'sprockets', :git => 'git://github.com/sstephenson/sprockets.git'
+#-------------------------------------------------------------------
 
 gem 'jquery-rails'
 
@@ -53,11 +52,10 @@ group :development, :test do
   gem 'guard-rspec'
   gem 'rb-inotify'
   gem 'libnotify'
-  gem 'guard-livereload'
+#  gem 'guard-livereload'
 end
 
 group :test do
   gem 'webrat'
   gem 'shoulda-matchers'
 end
-

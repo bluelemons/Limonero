@@ -2,7 +2,8 @@ class ContratosController < ApplicationController
   # GET /contratos
   # GET /contratos.json
   def index
-    @contratos = Contrato.all
+    @search = Contrato.search(params[:search])
+    @contratos = @search.page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -25,9 +26,8 @@ class ContratosController < ApplicationController
   # GET /contratos/new.json
   def new
     @contrato = Contrato.new
-    @contrato.payment_id = params[:payment_id]
-    @contrato.build_person
-
+    @lote = Lote.find(params[:lote_id])
+    @contrato.avaluo = @lote.avaluos.last
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @contrato }
@@ -46,7 +46,7 @@ class ContratosController < ApplicationController
 
     respond_to do |format|
       if @contrato.save
-        format.html { redirect_to @contrato.payment, notice: 'Contrato was successfully created.' }
+        format.html { redirect_to @contrato, notice: 'Contrato was successfully created.' }
         format.json { render json: @contrato, status: :created, location: @contrato }
       else
         format.html { render action: "new" }

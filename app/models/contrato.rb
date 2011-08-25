@@ -1,5 +1,8 @@
 class Contrato < ActiveRecord::Base
-  belongs_to :person, :class_name => "Personas::Person"
-  accepts_nested_attributes_for :person
-  belongs_to :payment
+  belongs_to :avaluo
+  has_many :compradores
+  has_many :persons,
+           :through => :compradores,
+           :class_name => "Personas::Person",
+           :source => :person
 end

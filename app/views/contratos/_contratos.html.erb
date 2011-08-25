@@ -1,9 +1,6 @@
 <table>
   <tr>
-    <th>Documento</th>
-    <th>Person</th>
-    <th>Direccion</th>
-    <th>Telefono</th>
+    <th>Inicio</th>
     <th></th>
     <th></th>
     <th></th>
@@ -11,13 +8,11 @@
 
 <% @contratos.each do |contrato| %>
   <tr>
-    <td><%= contrato.person.try(:tdoc).try(:name)%> <%=contrato.person.try(:doc)%></td>
-    <td><%= contrato.person.try(:name) %></td>
-    <td><%= contrato.person.try(:addressess).try(:format) %></td>
-    <td><%= contrato.person.try(:addressess).try :telefono %></td>
-    <td><%= link_to 'Detalles', payment_contrato_path(contrato.payment,contrato) %></td>
-    <td><%= link_to 'Editar', edit_payment_contrato_path(contrato.payment,contrato) %></td>
-    <td><%#= link_to 'Destroy', contrato, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= contrato.inicio %></td>
+    <td><%= link_to 'Detalles', contrato %></td>
+    <td><%= link_to 'Editar', edit_contrato_path(contrato) %></td>
+    <td><%= link_to 'Borrar', contrato, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
+
 </table>
