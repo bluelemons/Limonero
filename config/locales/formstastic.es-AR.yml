@@ -1,13 +1,11 @@
 es-AR:
-
   formtastic:
     :yes: 'Si'
     :no: 'No'
     :create: 'Crear'
     :update: 'Modificar'
     :required: 'requirido'
-
-    labels:
+    labeles:
       tdoc: "Tipo de documento"
       doc: "Documento"
       observations: "Observaciones"
@@ -20,4 +18,3 @@ es-AR:
       tdoc_id_eq: "Tipo de doc es igual"
       doc_eq: "Numero es igual"
       hidden_eq: "Incluir borrados"
-
