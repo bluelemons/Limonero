@@ -1,5 +1,10 @@
-$green: #BBFFCC;
+$blueprint-grid-margin: 10px;
 
+@import "blueprint/typography";
+@import "blueprint/grid";
+
+$main-light: #CCF;
+$main-dark: darken($main-light, 10%);
 
 div {
   &.field, &.actions {
@@ -33,33 +38,32 @@ div {
     font-size: 12px;
     list-style: square; } }
 
-@import "blueprint/typography";
-
 @include blueprint-typography;
-
-$blueprint_grid_columns: 12;
-$blueprint_grid_width: 60px;
-$background-green: #BFC;
-
-@import "blueprint/grid";
 
 a {
   @include link-colors(#00d, #0cc, #c0c, #77c, #cc0); }
 
 body {
-  @include container;
-  background-color: $background-green;
-  header, footer {
-    @include column(12);
-    .title { @include column(6);}
-    .search-bar {
-      @include column(6, true);
-      @include prepend-top(3em); } }
-  .big-sidebar {
-    @include column(4); }
-  .details {
-    @include column(8, true); } }
+  background-color: $main-dark;
+ }
 
+.container {
+  @include container;
+  padding: 0 20px;
+  background-color: $main-light;
+}
+
+header, footer {
+  @include column(24);
+  .title { @include column(14);}
+  .search-bar {
+    @include column(10, true);
+    @include prepend-top(3em); } }
+
+.big-sidebar {
+  @include column(8); }
+.details {
+  @include column(16, true); }
 /*
 body {
   background-color: $green;
