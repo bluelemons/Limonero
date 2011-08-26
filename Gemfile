@@ -44,6 +44,7 @@ gem "tabletastic"
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
+gem 'pry', :group => :development
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.5'
