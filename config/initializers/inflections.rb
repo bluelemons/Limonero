@@ -7,5 +7,11 @@ ActiveSupport::Inflector.inflections do |inflect|
   inflect.singular /([aeiou])s([A-Z]|_|$)/, '\1\2'
   inflect.singular /([rlnd])es([A-Z]|_|$)/, '\1\2'
   inflect.irregular 'person', 'people'
+  inflect.irregular 'tdoc', 'tdocs'
+  inflect.irregular 'civil', 'civils'
+  inflect.irregular 'address', 'addresses'
 #   inflect.uncountable %w( fish sheep )
 end
+
+
+
