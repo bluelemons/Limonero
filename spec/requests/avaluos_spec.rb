@@ -1,10 +1,15 @@
+# coding: utf-8
 require 'spec_helper'
 
-describe "Avaluos" do
-  describe "GET /avaluos" do
-    it "works! (now write some real specs)" do
-      get lote_avaluos_path(Factory(:lote))
-      response.status.should be(200)
-    end
+feature 'Valuación de lotes' do
+  background do
+    Factory(:lote)
+  end
+
+  scenario "Carga del avaluo de un lote" do
+    visit lotes_path(@lote)
+#    response.should match(/No dispone de un avaluo/)
+#    click_link "Actualizar precio"
+#    response.status.should be(200)
   end
 end

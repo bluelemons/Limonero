@@ -27,7 +27,7 @@ class ContratosController < ApplicationController
   def new
     @contrato = Contrato.new
     @lote = Lote.find(params[:lote_id])
-    @contrato.avaluo = @lote.avaluos.last
+    @contrato.avaluo = @lote.avaluo
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @contrato }

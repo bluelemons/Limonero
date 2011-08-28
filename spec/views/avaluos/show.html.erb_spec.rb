@@ -1,6 +1,9 @@
 require 'spec_helper'
 
 describe "avaluos/show.html.erb" do
+
+  include_context "it is nested in lote"
+
   before(:each) do
     @avaluo = assign(:avaluo, stub_model(Avaluo,
       :ncuotas => 1,
@@ -9,7 +12,8 @@ describe "avaluos/show.html.erb" do
       :cuota_currency => "Cuota Currency",
       :interes => 1.5,
       :lote_id => 1,
-      :observaciones => "MyText"
+      :observaciones => "MyText",
+      :lote => @lote
     ))
   end
 

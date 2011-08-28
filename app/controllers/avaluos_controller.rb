@@ -1,30 +1,20 @@
 class AvaluosController < ApplicationController
-  # GET /avaluos
-  # GET /avaluos.json
-  def index
-    @avaluos = Avaluo.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @avaluos }
-    end
-  end
-
-  # GET /avaluos/1
-  # GET /avaluos/1.json
+  # GET /lotes/1/avaluo
+  # GET /lotes/1/avaluo.json
   def show
-    @avaluo = Avaluo.find(params[:id])
-
+    find_avaluo
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @avaluo }
     end
   end
 
-  # GET /avaluos/new
-  # GET /avaluos/new.json
+  # GET /lote/1/avaluo/new
+  # GET /lote/1/avaluo/new.json
   def new
-    @avaluo = Avaluo.new
+    lote = Lote.find(params[:lote_id])
+    @avaluo = lote.build_avaluo
 
     respond_to do |format|
       format.html # new.html.erb
@@ -32,16 +22,16 @@ class AvaluosController < ApplicationController
     end
   end
 
-  # GET /avaluos/1/edit
+  # GET /lote/1/avaluo/edit
   def edit
-    @avaluo = Avaluo.find(params[:id])
+    find_avaluo
   end
 
-  # POST /avaluos
-  # POST /avaluos.json
+  # POST /lote/1/avaluo
+  # POST /lote/1/avaluo.json
   def create
-    @avaluo = Avaluo.new(params[:avaluo])
-    @avaluo.lote_id = params[:lote_id]
+    @lote = Lote.find(params[:lote_id])
+    @avaluo = @lote.build_avaluo(params[:avaluo])
     respond_to do |format|
       if @avaluo.save
         format.html { redirect_to @avaluo.lote, notice: 'Avaluo was successfully created.' }
@@ -53,14 +43,13 @@ class AvaluosController < ApplicationController
     end
   end
 
-  # PUT /avaluos/1
-  # PUT /avaluos/1.json
+  # PUT /lote/1/avaluo
+  # PUT /lote/1/avaluo.json
   def update
-    @avaluo = Avaluo.find(params[:id])
-
+    find_avaluo
     respond_to do |format|
       if @avaluo.update_attributes(params[:avaluo])
-        format.html { redirect_to @avaluo, notice: 'Avaluo was successfully updated.' }
+        format.html { redirect_to @avaluo.lote, notice: 'Avaluo was successfully updated.' }
         format.json { head :ok }
       else
         format.html { render action: "edit" }
@@ -69,15 +58,22 @@ class AvaluosController < ApplicationController
     end
   end
 
-  # DELETE /avaluos/1
-  # DELETE /avaluos/1.json
+  # DELETE /lote/1/avaluo
+  # DELETE /lote/1/avaluo.json
   def destroy
-    @avaluo = Avaluo.find(params[:id])
+    find_avaluo
     @avaluo.destroy
 
     respond_to do |format|
-      format.html { redirect_to avaluos_url }
+      format.html { redirect_to @avaluo.lote }
       format.json { head :ok }
     end
   end
+
+  protected
+
+  def find_avaluo
+    @avaluo = Avaluo.find_by_lote_id(params[:lote_id])
+  end
+
 end

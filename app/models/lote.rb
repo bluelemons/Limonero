@@ -1,8 +1,8 @@
 # coding: utf-8
- 
+
 class Lote < ActiveRecord::Base
   # El modelo central del sistema, guarda datos catastrales reales de cada lotee.
-  has_many :avaluos
+  has_one :avaluo
 
   # Si el lotee está vendido, indica el nombre del comprador.
   def titular
@@ -25,11 +25,6 @@ class Lote < ActiveRecord::Base
 
   # Indica contrato en caso de estar vendido.
   def contrato
-    avaluo.try(:contrato)
-  end
-
-  # El avaluo actual
-  def avaluo
-    avaluos.last
+    avaluo.try(:contratos).try(:last)
   end
 end

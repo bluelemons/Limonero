@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Lote do
-  it { should have_many :avaluos }
+  it { should have_one :avaluo }
 
   context 'si el lote no esta vendido' do
     subject { Factory(:lote) }

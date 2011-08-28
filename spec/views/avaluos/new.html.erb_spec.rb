@@ -1,6 +1,9 @@
 require 'spec_helper'
 
 describe "avaluos/new.html.erb" do
+
+  include_context "it is nested in lote"
+
   before(:each) do
     assign(:avaluo, stub_model(Avaluo,
       :ncuotas => 1,
@@ -8,8 +11,8 @@ describe "avaluos/new.html.erb" do
       :cuota_inicial => 1,
       :cuota_currency => "MyString",
       :interes => 1.5,
-      :lote_id => 1,
-      :observaciones => "MyText"
+      :observaciones => "MyText",
+      :lote => @lote
     ).as_new_record)
   end
 
@@ -17,7 +20,7 @@ describe "avaluos/new.html.erb" do
     render
 
     # Run the generator again with the --webrat flag if you want to use webrat matchers
-    assert_select "form", :action => avaluos_path, :method => "post" do
+    assert_select "form", :action => lote_avaluo_path(@lote), :method => "post" do
       assert_select "input#avaluo_ncuotas", :name => "avaluo[ncuotas]"
       assert_select "input#avaluo_cuota_cents", :name => "avaluo[cuota_cents]"
       assert_select "input#avaluo_cuota_inicial", :name => "avaluo[cuota_inicial]"
