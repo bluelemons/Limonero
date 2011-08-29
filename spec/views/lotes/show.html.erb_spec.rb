@@ -20,9 +20,9 @@ describe "lotes/show.html.erb" do
 
   context "si el lote no tiene avaluo" do
     it "muestra un link para crear el avaluo" do
-      pending
       render
-      assert_select 'a', 'Ingresar Avaluo'
+      assert_select 'a', { :count => 1, :text => 'Ingresar precio', :html => new_lote_avaluo_path(@lote) },
+        'no hay link para crear el avaluo'
     end
   end
 
@@ -39,9 +39,9 @@ describe "lotes/show.html.erb" do
     end
 
     it "muestra un link para actualizar el avaluo" do
-      pending
       render
-      assert_select 'a', 'Actualizar Avaluo'
+      assert_select 'a', { :count => 1, :text => 'Actualizar precio', :html => edit_lote_avaluo_path(@lote) },
+        'no hay link para editar el avaluo'
     end
   end
 end
