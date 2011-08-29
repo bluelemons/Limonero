@@ -3,7 +3,7 @@ class AvaluosController < ApplicationController
   # GET /lotes/1/avaluo
   # GET /lotes/1/avaluo.json
   def show
-    find_avaluo
+    find_lote_avaluo
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @avaluo }
@@ -24,14 +24,16 @@ class AvaluosController < ApplicationController
 
   # GET /lote/1/avaluo/edit
   def edit
-    find_avaluo
+    find_lote_avaluo
   end
 
   # POST /lote/1/avaluo
   # POST /lote/1/avaluo.json
   def create
+    find_lote
     @lote = Lote.find(params[:lote_id])
     @avaluo = @lote.build_avaluo(params[:avaluo])
+
     respond_to do |format|
       if @avaluo.save
         format.html { redirect_to @avaluo.lote, notice: 'Avaluo was successfully created.' }
@@ -46,7 +48,7 @@ class AvaluosController < ApplicationController
   # PUT /lote/1/avaluo
   # PUT /lote/1/avaluo.json
   def update
-    find_avaluo
+    find_lote_avaluo
     respond_to do |format|
       if @avaluo.update_attributes(params[:avaluo])
         format.html { redirect_to @avaluo.lote, notice: 'Avaluo was successfully updated.' }
@@ -61,7 +63,7 @@ class AvaluosController < ApplicationController
   # DELETE /lote/1/avaluo
   # DELETE /lote/1/avaluo.json
   def destroy
-    find_avaluo
+    find_lote_avaluo
     @avaluo.destroy
 
     respond_to do |format|
@@ -72,8 +74,13 @@ class AvaluosController < ApplicationController
 
   protected
 
-  def find_avaluo
-    @avaluo = Avaluo.find_by_lote_id(params[:lote_id])
+  # Busca el avaluo correspondiente a el @lote
+  def find_lote_avaluo
+    find_lote
+    @avaluo = @lote.avaluo
   end
 
+  def find_lote
+    @lote = Lote.find(params[:lote_id])
+  end
 end
