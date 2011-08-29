@@ -12,13 +12,36 @@ describe "lotes/show.html.erb" do
 
   it "renders attributes in <p>" do
     render
-    # Run the generator again with the --webrat flag if you want to use webrat matchers
     rendered.should match(/Manzana/)
-    # Run the generator again with the --webrat flag if you want to use webrat matchers
     rendered.should match(/Loteo/)
-    # Run the generator again with the --webrat flag if you want to use webrat matchers
     rendered.should match(/Parcela/)
-    # Run the generator again with the --webrat flag if you want to use webrat matchers
     rendered.should match(/Partida/)
+  end
+
+  context "si el lote no tiene avaluo" do
+    it "muestra un link para crear el avaluo" do
+      pending
+      render
+      assert_select 'a', 'Ingresar Avaluo'
+    end
+  end
+
+  context "si el lote tiene avaluo" do
+    before(:each) do
+      @lote.stub(:avaluo) { stub_model(Avaluo,
+        :ncuotas => 1,
+        :cuota_cents => 1,
+        :cuota_inicial => 1,
+        :cuota_currency => "Cuota Currency",
+        :interes => 1.5,
+        :lote_id => 1,
+        :observaciones => "MyText") }
+    end
+
+    it "muestra un link para actualizar el avaluo" do
+      pending
+      render
+      assert_select 'a', 'Actualizar Avaluo'
+    end
   end
 end
