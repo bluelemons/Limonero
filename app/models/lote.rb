@@ -6,7 +6,7 @@ class Lote < ActiveRecord::Base
 
   # Si el lotee está vendido, indica el nombre del comprador.
   def titular
-    contrato.try(:compradores).try(:first).try(:person).try(:name)
+    contrato.try(:compradores).try(:first).try(:name)
   end
 
   # Indica si el lote fue vendido o no.

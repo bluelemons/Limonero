@@ -16,7 +16,7 @@ describe Lote do
     subject do
       @lote = Factory(:lote)
       @avaluo = Factory(:avaluo, :lote => @lote)
-      @contrato = Factory(:contrato, :avaluo => @avaluo, :persons => [Factory(:juan_perez)])
+      @contrato = Factory(:contrato, :avaluo => @avaluo, :compradores => [Factory(:juan_perez)])
       @lote
     end
 

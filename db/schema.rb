@@ -25,11 +25,9 @@ ActiveRecord::Schema.define(:version => 20110823181429) do
     t.datetime "updated_at"
   end
 
-  create_table "compradores", :force => true do |t|
-    t.integer  "person_id"
-    t.integer  "contrato_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table "compradores", :id => false, :force => true do |t|
+    t.integer "person_id"
+    t.integer "contrato_id"
   end
 
   create_table "contratos", :force => true do |t|
