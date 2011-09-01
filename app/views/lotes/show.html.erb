@@ -32,11 +32,9 @@
   <h2>Plan de cuentas</h2>
   <% if !@lote.avaluo.contratos.last %>
     <%= link_to 'Crear plan de pagos', new_lote_contrato_path(@lote) %>
-  <% end %>
-
-  <% @lote.avaluo.contratos.each do |contrato| %>
+  <% else %>
     <%= render :partial => "/contratos/contratos",
-               :locals => { :@contratos=>contrato.compradores } %>
+               :locals => { :@contratos => @lote.contratos.last.compradores } %>
   <% end %>
 <% else %>
   <%= link_to 'Ingresar precio', new_lote_avaluo_path(@lote) %>
