@@ -7,7 +7,7 @@ describe "contratos/edit.html.erb" do
     ))
   end
 
-  it "renders the edit contrato form" do
+  pending "renders the edit contrato form" do
     render
 
     # Run the generator again with the --webrat flag if you want to use webrat matchers

@@ -1,24 +1,16 @@
-<%= form_for(@contrato) do |f| %>
-  <% if @contrato.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@contrato.errors.count, "error") %> prohibited this contrato from being saved:</h2>
+<%= semantic_form_for([@contrato.avaluo.lote, @contrato]) do |form| %>
 
-      <ul>
-      <% @contrato.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
+  <%= error_message(@contrato) %>
+
+  <%= form.hidden_field :avaluo_id %>
+
+  <%= form.inputs do %>
+    <%= form.input :inicio %>
+    <p><%= link_to "Ingresar un nuevo cliente", personas.new_person_path %></p>
+    <%= form.input :compradores_tokens, :label => "Compradores:",
+                   :input_html => {
+                     "data-pre" => @contrato.compradores.to_json, :only => [:id, :name] } %>
   <% end %>
+  <%= form.buttons %>
 
-  <div class="field">
-    <%= f.label :inicio %><br />
-    <%= f.date_select :inicio %>
-  </div>
-  <div class="field">
-    <%= f.hidden_field :avaluo_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
 <% end %>
