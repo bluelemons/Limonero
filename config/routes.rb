@@ -11,7 +11,8 @@ Limonero::Application.routes.draw do
     # resources :pays
   end
 
-  mount Personas::Engine => "/personas"
+  # la opcion :as crea helpers como por ej. personas.new_person_path
+  mount Personas::Engine => "/personas", :as => "persosnas"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
