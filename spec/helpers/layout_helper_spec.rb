@@ -12,6 +12,31 @@ require 'spec_helper'
 # end
 describe LayoutHelper do
   describe "#error_message(model)" do
-    pending "add examples to this #{__FILE__}"
+    context "si hay un error" do
+      let(:model) do
+        errors = { :nombre=>"no puede estar en blanco" }
+        model = mock_model(Lote)
+        model.stub(:errors) { errors }
+        model.stub_chain(:errors, :full_messages) { [ "stub" ] }
+        model
+      end
+
+      it "devuelve un html con el error" do
+        helper.error_message(model).should match(/stub/)
+      end
+    end
+
+    context "si hay un error" do
+      let(:model) do
+        model = mock_model(Lote)
+        model.stub(:errors) { {} }
+        model
+      end
+
+      it "devuelve un html con el error" do
+        helper.error_message(model).should be_nil
+      end
+    end
+
   end
 end
