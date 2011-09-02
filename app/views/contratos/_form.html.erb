@@ -1,16 +1,19 @@
-<%= semantic_form_for([@contrato.avaluo.lote, @contrato]) do |form| %>
+<%= semantic_form_for([@lote, @contrato]) do |form| %>
 
   <%= error_message(@contrato) %>
-
-  <%= form.hidden_field :avaluo_id %>
 
   <%= form.inputs do %>
     <%= form.input :inicio %>
     <p><%= link_to "Ingresar un nuevo cliente", personas.new_person_path %></p>
     <%= form.input :compradores_tokens, :label => "Compradores:",
-                   :input_html => {
-                     "data-pre" => @contrato.compradores.to_json, :only => [:id, :name] } %>
+      :input_html => {
+        "data-pre" => @contrato.compradores.to_json, :only => [:id, :name] } %>
+    <%= form.input :ncuotas %>
+    <%= form.input :cuota_cents %>
+    <%= form.input :cuota_inicial %>
+    <%= form.input :cuota_currency %>
+    <%= form.input :interes %>
+    <%= form.input :observaciones %>
   <% end %>
   <%= form.buttons %>
-
 <% end %>

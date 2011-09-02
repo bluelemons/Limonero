@@ -11,10 +11,10 @@ class ContratosController < ApplicationController
     end
   end
 
-  # GET /contratos/1
-  # GET /contratos/1.json
+  # GET /lote/1/contrato
+  # GET /lote/1/contrato.json
   def show
-    @contrato = Contrato.find(params[:id])
+    find_lote_contrato
 
     respond_to do |format|
       format.html # show.html.erb
@@ -22,27 +22,28 @@ class ContratosController < ApplicationController
     end
   end
 
-  # GET /contratos/new
-  # GET /contratos/new.json
+  # GET /lote/1/contrato/new
+  # GET /lote/1/contrato/new.json
   def new
-    @contrato = Contrato.new
-    @lote = Lote.find(params[:lote_id])
-    @contrato.avaluo = @lote.avaluo
+    find_lote
+    @contrato = @lote.build_contrato
+
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @contrato }
     end
   end
 
-  # GET /contratos/1/edit
+  # GET /lote/1/contrato/edit
   def edit
-    @contrato = Contrato.find(params[:id])
+    find_lote_contrato
   end
 
-  # POST /contratos
-  # POST /contratos.json
+  # POST /lote/1/contrato
+  # POST /lote/1/contrato.json
   def create
-    @contrato = Contrato.new(params[:contrato])
+    find_lote
+    @contrato = @lote.build_contrato(params[:contrato])
 
     respond_to do |format|
       if @contrato.save
@@ -55,10 +56,10 @@ class ContratosController < ApplicationController
     end
   end
 
-  # PUT /contratos/1
-  # PUT /contratos/1.json
+  # PUT /lote/1/contrato
+  # PUT /lote/1/contrato.json
   def update
-    @contrato = Contrato.find(params[:id])
+    find_lote_contrato
 
     respond_to do |format|
       if @contrato.update_attributes(params[:contrato])
@@ -71,15 +72,27 @@ class ContratosController < ApplicationController
     end
   end
 
-  # DELETE /contratos/1
-  # DELETE /contratos/1.json
+  # DELETE /lote/1/contrato
+  # DELETE /lote/1/contrato.json
   def destroy
-    @contrato = Contrato.find(params[:id])
+    find_lote_contrato
     @contrato.destroy
 
     respond_to do |format|
-      format.html { redirect_to contratos_url }
+      format.html { redirect_to @lote }
       format.json { head :ok }
     end
+  end
+
+  protected
+
+  # Busca el contrato correspondiente a el @lote
+  def find_lote_contrato
+    find_lote
+    @contrato = @lote.contrato
+  end
+
+  def find_lote
+    @lote = Lote.find(params[:lote_id])
   end
 end

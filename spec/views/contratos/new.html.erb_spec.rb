@@ -2,8 +2,10 @@ require 'spec_helper'
 
 describe "contratos/new.html.erb" do
   before(:each) do
+    lote = stub_model(Lote)
+    assign(:lote, lote)
     assign(:contrato, stub_model(Contrato,
-      :avaluo_id => 1
+      :lote => lote
     ).as_new_record)
   end
 
@@ -11,8 +13,7 @@ describe "contratos/new.html.erb" do
     render
 
     # Run the generator again with the --webrat flag if you want to use webrat matchers
-    assert_select "form", :action => contratos_path, :method => "post" do
-      assert_select "input#contrato_avaluo_id", :name => "contrato[avaluo_id]"
+    assert_select "form", :method => "post" do
     end
   end
 end

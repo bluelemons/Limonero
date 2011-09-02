@@ -23,17 +23,20 @@ describe ContratosController do
   # This should return the minimal set of attributes required to create a valid
   # Contrato. As you add validations to Contrato, be sure to
   # update the return value of this method accordingly.
-  def lote
-    @lote ||= Factory(:lote)
-  end
+
+  include_context "it is nested in lote"
 
   def valid_attributes
-    {}
+    Factory.attributes_for(:contrato)
+  end
+
+  def create_valid_contrato
+    @lote.create_contrato! valid_attributes
   end
 
   describe "GET index" do
     it "assigns all contratos as @contratos" do
-      contrato = Contrato.create! valid_attributes
+      contrato = create_valid_contrato
       get :index
       assigns(:contratos).should eq([contrato])
     end
@@ -41,23 +44,34 @@ describe ContratosController do
 
   describe "GET show" do
     it "assigns the requested contrato as @contrato" do
-      contrato = Contrato.create! valid_attributes
-      get :show, :id => contrato.id.to_s
+      contrato = create_valid_contrato
+      get :show, :lote_id => @lote.id.to_s
       assigns(:contrato).should eq(contrato)
+    end
+
+    it "assigna el lote correspondiente como @lote" do
+      contrato = create_valid_contrato
+      get :show, :lote_id => @lote.id.to_s
+      assigns(:lote).should eq(@lote)
     end
   end
 
   describe "GET new" do
     it "assigns a new contrato as @contrato" do
-      get :new, :lote_id => lote.id.to_s
+      get :new, :lote_id => @lote.id.to_s
       assigns(:contrato).should be_a_new(Contrato)
+    end
+
+    it "@contrato pertenece a @lote" do
+      get :new, :lote_id => @lote.id.to_s
+      assigns(:contrato).lote.should == @lote
     end
   end
 
   describe "GET edit" do
     it "assigns the requested contrato as @contrato" do
-      contrato = Contrato.create! valid_attributes
-      get :edit, :id => contrato.id.to_s
+      contrato = create_valid_contrato
+      get :edit, :lote_id => @lote.id.to_s
       assigns(:contrato).should eq(contrato)
     end
   end
@@ -66,18 +80,18 @@ describe ContratosController do
     describe "with valid params" do
       it "creates a new Contrato" do
         expect {
-          post :create, :contrato => valid_attributes
+          post :create, :contrato => valid_attributes, :lote_id => @lote.id.to_s
         }.to change(Contrato, :count).by(1)
       end
 
       it "assigns a newly created contrato as @contrato" do
-        post :create, :contrato => valid_attributes
+        post :create, :contrato => valid_attributes, :lote_id => @lote.id.to_s
         assigns(:contrato).should be_a(Contrato)
         assigns(:contrato).should be_persisted
       end
 
       it "redirects to the created contrato" do
-        post :create, :contrato => valid_attributes
+        post :create, :contrato => valid_attributes, :lote_id => @lote.id.to_s
         response.should redirect_to(Contrato.last)
       end
     end
@@ -86,14 +100,14 @@ describe ContratosController do
       it "assigns a newly created but unsaved contrato as @contrato" do
         # Trigger the behavior that occurs when invalid params are submitted
         Contrato.any_instance.stub(:save).and_return(false)
-        post :create, :contrato => {}
+        post :create, :contrato => {}, :lote_id => @lote.id.to_s
         assigns(:contrato).should be_a_new(Contrato)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         Contrato.any_instance.stub(:save).and_return(false)
-        post :create, :contrato => {}
+        post :create, :contrato => {}, :lote_id => @lote.id.to_s
         response.should render_template("new")
       end
     end
@@ -102,42 +116,42 @@ describe ContratosController do
   describe "PUT update" do
     describe "with valid params" do
       it "updates the requested contrato" do
-        contrato = Contrato.create! valid_attributes
+        contrato = create_valid_contrato
         # Assuming there are no other contratos in the database, this
         # specifies that the Contrato created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
         Contrato.any_instance.should_receive(:update_attributes).with({'these' => 'params'})
-        put :update, :id => contrato.id, :contrato => {'these' => 'params'}
+        put :update, :contrato => {'these' => 'params'}, :lote_id => @lote.id.to_s
       end
 
       it "assigns the requested contrato as @contrato" do
-        contrato = Contrato.create! valid_attributes
-        put :update, :id => contrato.id, :contrato => valid_attributes
+        contrato = create_valid_contrato
+        put :update, :contrato => valid_attributes, :lote_id => @lote.id.to_s
         assigns(:contrato).should eq(contrato)
       end
 
       it "redirects to the contrato" do
-        contrato = Contrato.create! valid_attributes
-        put :update, :id => contrato.id, :contrato => valid_attributes
+        contrato = create_valid_contrato
+        put :update, :contrato => valid_attributes, :lote_id => @lote.id.to_s
         response.should redirect_to(contrato)
       end
     end
 
     describe "with invalid params" do
       it "assigns the contrato as @contrato" do
-        contrato = Contrato.create! valid_attributes
+        contrato = create_valid_contrato
         # Trigger the behavior that occurs when invalid params are submitted
         Contrato.any_instance.stub(:save).and_return(false)
-        put :update, :id => contrato.id.to_s, :contrato => {}
+        put :update, :contrato => {}, :lote_id => @lote.id.to_s
         assigns(:contrato).should eq(contrato)
       end
 
       it "re-renders the 'edit' template" do
-        contrato = Contrato.create! valid_attributes
+        contrato = create_valid_contrato
         # Trigger the behavior that occurs when invalid params are submitted
         Contrato.any_instance.stub(:save).and_return(false)
-        put :update, :id => contrato.id.to_s, :contrato => {}
+        put :update, :contrato => {}, :lote_id => @lote.id.to_s
         response.should render_template("edit")
       end
     end
@@ -145,16 +159,16 @@ describe ContratosController do
 
   describe "DELETE destroy" do
     it "destroys the requested contrato" do
-      contrato = Contrato.create! valid_attributes
+      contrato = create_valid_contrato
       expect {
-        delete :destroy, :id => contrato.id.to_s
+        delete :destroy, :lote_id => @lote.id.to_s
       }.to change(Contrato, :count).by(-1)
     end
 
-    it "redirects to the contratos list" do
-      contrato = Contrato.create! valid_attributes
-      delete :destroy, :id => contrato.id.to_s
-      response.should redirect_to(contratos_url)
+    it "redirije a la vista de lote" do
+      contrato = create_valid_contrato
+      delete :destroy, :lote_id => @lote.id.to_s
+      response.should redirect_to(@lote)
     end
   end
 

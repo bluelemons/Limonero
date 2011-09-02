@@ -8,27 +8,27 @@ describe ContratosController do
     end
 
     it "routes to #new" do
-      get("/contratos/new").should route_to("contratos#new")
+      get("/lotes/1/contrato/new").should route_to("contratos#new", :lote_id => "1")
     end
 
     it "routes to #show" do
-      get("/contratos/1").should route_to("contratos#show", :id => "1")
+      get("/lotes/1/contrato").should route_to("contratos#show", :lote_id => "1")
     end
 
     it "routes to #edit" do
-      get("/contratos/1/edit").should route_to("contratos#edit", :id => "1")
+      get("/lotes/1/contrato/edit").should route_to("contratos#edit", :lote_id => "1")
     end
 
     it "routes to #create" do
-      post("/contratos").should route_to("contratos#create")
+      post("/lotes/1/contrato").should route_to("contratos#create", :lote_id => "1")
     end
 
     it "routes to #update" do
-      put("/contratos/1").should route_to("contratos#update", :id => "1")
+      put("/lotes/1/contrato").should route_to("contratos#update", :lote_id => "1")
     end
 
     it "routes to #destroy" do
-      delete("/contratos/1").should route_to("contratos#destroy", :id => "1")
+      delete("/lotes/1/contrato").should route_to("contratos#destroy", :lote_id => "1")
     end
 
   end

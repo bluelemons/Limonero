@@ -1,9 +1,7 @@
 Limonero::Application.routes.draw do
-  resources :contratos
 
   resources :lotes do
-    resource :avaluo
-    resources :contratos
+    resource :contrato
   end
 
   resources :contratos do

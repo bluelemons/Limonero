@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Lote do
-  it { should have_one :avaluo }
+  it { should have_one :contrato }
 
   context 'si el lote no esta vendido' do
     subject { Factory(:lote) }
@@ -15,8 +15,7 @@ describe Lote do
   context 'si el lote fue vendido' do
     subject do
       @lote = Factory(:lote)
-      @avaluo = Factory(:avaluo, :lote => @lote)
-      @contrato = Factory(:contrato, :avaluo => @avaluo, :compradores => [Factory(:juan_perez)])
+      @contrato = Factory(:contrato, :lote => @lote, :compradores => [Factory(:juan_perez)])
       @lote
     end
 

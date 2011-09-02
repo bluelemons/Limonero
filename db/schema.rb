@@ -32,7 +32,13 @@ ActiveRecord::Schema.define(:version => 20110823181429) do
 
   create_table "contratos", :force => true do |t|
     t.date     "inicio"
-    t.integer  "avaluo_id"
+    t.integer  "lote_id"
+    t.integer  "ncuotas"
+    t.integer  "cuota_cents"
+    t.integer  "cuota_inicial"
+    t.string   "cuota_currency", :limit => 3
+    t.float    "interes"
+    t.text     "observaciones"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
