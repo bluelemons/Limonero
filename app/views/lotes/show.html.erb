@@ -25,18 +25,27 @@
 </p>
 
 <h2>Valor</h2>
-<% if @lote.avaluo %>
-  <%= link_to 'Actualizar precio', edit_lote_avaluo_path(@lote) %>
-  <%= render :partial => "avaluos/avaluo", :locals=>{:@avaluo => @lote.avaluo} %>
+<p>
+  <b>Cantidad de cuotas:</b>
+  <%= @lote.ncuotas %>
+</p>
+<p>
+  <b>Valor de cada cuota:</b>
+  <%= @lote.monto_cents %>
+</p>
+<p>
+  <b>Moneda:</b>
+  <%= @lote.monto_currency %>
+</p>
+<p>
+  <b>Interes:</b>
+  <%= @lote.interes %>
+</p>
 
-  <h2>Plan de cuentas</h2>
-  <% if !@lote.avaluo.contratos.last %>
+
+<h2>Plan de cuentas</h2>
+  <% if !@lote.contrato %>
     <%= link_to 'Crear plan de pagos', new_lote_contrato_path(@lote) %>
-  <% else %>
-    <%= render :partial => "/contratos/contratos",
-               :locals => { :@contratos => @lote.contratos.last.compradores } %>
   <% end %>
-<% else %>
-  <%= link_to 'Ingresar precio', new_lote_avaluo_path(@lote) %>
-<% end %>
+
 </div>

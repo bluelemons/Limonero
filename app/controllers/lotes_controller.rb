@@ -15,7 +15,7 @@ class LotesController < ApplicationController
   # GET /lotes/1.json
   def show
     @lote = Lote.find(params[:id])
-
+    @people = @lote.try(:contrato).try(:compradores).try(:page,(params[:page]))
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @lote }

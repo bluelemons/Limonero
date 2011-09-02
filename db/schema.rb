@@ -42,6 +42,10 @@ ActiveRecord::Schema.define(:version => 20110823181429) do
     t.string   "loteo"
     t.string   "parcela"
     t.string   "partida"
+    t.integer  "ncuotas"
+    t.integer  "monto_cents"
+    t.string   "monto_currency"
+    t.float    "interes"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

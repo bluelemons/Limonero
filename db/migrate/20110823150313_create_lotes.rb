@@ -5,6 +5,10 @@ class CreateLotes < ActiveRecord::Migration
       t.string :loteo
       t.string :parcela
       t.string :partida
+      t.integer :ncuotas
+      t.integer :monto_cents
+      t.string :monto_currency
+      t.float :interes
 
       t.timestamps
     end
