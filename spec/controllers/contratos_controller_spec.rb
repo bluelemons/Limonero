@@ -90,9 +90,9 @@ describe ContratosController do
         assigns(:contrato).should be_persisted
       end
 
-      it "redirects to the created contrato" do
+      it "redirije al show del lote" do
         post :create, :contrato => valid_attributes, :lote_id => @lote.id.to_s
-        response.should redirect_to(Contrato.last)
+        response.should redirect_to(@lote)
       end
     end
 
