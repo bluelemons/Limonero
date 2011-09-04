@@ -44,8 +44,9 @@
 
 
 <h2>Plan de cuentas</h2>
-  <% if !@lote.contrato %>
+  <% if @contrato %>
+    <%= render :partial => "contratos/contrato" %>
+  <% else %>
     <%= link_to 'Crear plan de pagos', new_lote_contrato_path(@lote) %>
   <% end %>
-
 </div>

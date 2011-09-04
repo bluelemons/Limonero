@@ -1,0 +1,36 @@
+<p>
+  <b>Inicio:</b>
+  <%= @contrato.inicio %>
+</p>
+
+<p>
+  <b>Cantidad de cuotas:</b>
+  <%= @contrato.ncuotas %>
+</p>
+
+<p>
+  <b>Cuota inicial:</b>
+  <%= @contrato.cuota_inicial %>
+</p>
+
+<p>
+  <b>Interes:</b>
+  <%= @contrato.interes %>
+</p>
+
+<p>
+  <b>Valor de la cuota:</b>
+  <%= @contrato.cuota_cents %>
+</p>
+
+<h3>Compradores: </h3>
+<% if @contrato.compradores %>
+  <%= render :partial => "personas/people/people" %>
+<% else %>
+  <p>
+    <b>No hay compradores en ingresados en este contrato</b>
+  </p>
+<% end %>
+
+
+<%= link_to 'Editar contrato', edit_lote_contrato_path(@lote) %>
