@@ -3,7 +3,7 @@
   <%= error_message(@contrato) %>
 
   <%= form.inputs do %>
-    <%= form.input :inicio %>
+    <%= form.input :inicio, :as=>:string, :input_html => {:class => 'datepicker', :size=>10} %>
     <p><%= link_to "Ingresar un nuevo cliente", personas.new_person_path %></p>
     <%= form.input :compradores_tokens, :label => "Compradores:",
       :input_html => {
