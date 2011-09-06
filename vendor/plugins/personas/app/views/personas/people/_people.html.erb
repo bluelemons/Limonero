@@ -3,6 +3,7 @@
   <%= t.data do
     t.cell(:name)
     t.cell(:tdoc).try :name
+    t.cell :doc
     t.cell(:civil).try :name
     t.cell(:acciones, :heading => "Acciones", :cell_html => {:class => "acciones"}) do |person|
       cell_content = link_to 'Detalles', personas.person_path(person)
