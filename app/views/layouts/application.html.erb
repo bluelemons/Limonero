@@ -8,7 +8,14 @@
 </head>
 <body class="<%= controller.controller_name %>">
 <div class="container">
-<%= yield %>
+  <div id="menu">
+    ir a:
+    <%= link_to 'Lotes', "/lotes" %> |
+    <%= link_to 'Personas', personas.people_path %>
+
+
+  </div>
+  <%= yield %>
 </div>
 
 </body>
