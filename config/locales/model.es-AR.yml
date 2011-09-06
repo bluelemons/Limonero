@@ -1,21 +1,12 @@
 es-AR:
-  people: personas
-  person: persona
   activerecord:
     attributes:
       contrato:
-        ncuotas: 'numero de cuotas'
-        cuota_cents: 'cuota'
-        cuota_currency: 'moneda'
+        ncuotas: 'Numero de cuotas'
+        cuota_cents: 'Cuota'
+        cuota_currency: 'Moneda'
       lote:
-        ncuotas: 'numero de cuotas'
-        monto_cents: 'monto'
-        monto_currency: 'moneda'
-      personas_address:
-        taddress: 'tipo de contacto'
-        format: 'domicilio'
-      personas_person:
-        name: 'nombre'
-        tdoc: 'tipo de documento'
-        doc: 'documento'
-        
+        ncuotas: 'Numero de cuotas'
+        monto_cents: 'Cuota'
+        monto_currency: 'Moneda'
+
