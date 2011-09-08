@@ -61,31 +61,6 @@ header, footer {
     @include prepend-top(3em); } }
 
 .big-sidebar {
-  @include column(8); }
+  @include column(24); }
 .details {
   @include column(16, true); }
-/*
-body {
-  background-color: $green;
-  color: darken($green, 90%);
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px; }
-
-p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px; }
-
-pre {
-  background-color: #eee;
-  padding: 10px;
-  font-size: 11px; }
-
-a {
-  color: #000;
-  &:visited {
-    color: #666; }
-  &:hover {
-    color: #fff;
-    background-color: #000; } }  */
