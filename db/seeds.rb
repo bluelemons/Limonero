@@ -5,3 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+['DNI', 'CUIT', 'CUIL', 'LE' ,'LC'].each do |tipo|
+  Personas::Tdoc.find_or_create_by_name tipo
+end
+
+['soltero', 'casado', 'divorciado', 'viudo'].each do |tipo|
+  Personas::Civil.find_or_create_by_name tipo
+end
