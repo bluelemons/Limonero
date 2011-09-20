@@ -18,5 +18,7 @@
 </div>
 
 <footer>
-  <%= link_to 'Cargar un nuevo Pago', new_lote_contrato_pago_path(@lote) %>
+  <% if params[:lote_id] %>
+    <%= link_to 'Cargar un nuevo Pago', new_lote_contrato_pago_path(@lote) %>
+  <% end %>
 </footer>
