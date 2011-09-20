@@ -1,3 +1,4 @@
+<%= link_to 'Editar contrato', edit_lote_contrato_path(@lote) %>
 <p>
   <b>Inicio:</b>
   <%= @contrato.inicio %>
@@ -34,12 +35,15 @@
 
    
 <h3>Deuda</h3>
+<%= link_to 'Ver Pagos', lote_contrato_pagos_path(@lote)%>
+<%= link_to 'Nuevo Pago', new_lote_contrato_pago_path(@lote)%>
 <p>
   <b>Cuotas restantes:</b>
   <%= @contrato.try :cuotas_restantes %>
 </p>
 
-
-<%= link_to 'Editar contrato', edit_lote_contrato_path(@lote) %>
-<%= link_to 'Ver Pagos', lote_contrato_pagos_path(@lote)%>
+<% if @contrato.pagos.count > 0 %>
+  <h3>ultimo pago</h3>
+  <%= render :partial => "pagos/pago",:locals =>{:@pago => @contrato.pagos.last} %>
+<% end %>
 
