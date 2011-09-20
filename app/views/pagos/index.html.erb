@@ -1,0 +1,22 @@
+<header>
+	<div class="title">
+    <h1>Lotes</h1>
+    <p>Listado de Pagos</p>
+  </div>
+
+  <div class="search-bar">
+    <%= render :partial => "pagos/search" %>
+  </div>
+</header>
+
+<div class="big-sidebar">
+  <%= paginate @pagos %>
+  <%= render :partial => "pagos/pagos" %>
+</div>
+
+<div class="details">
+</div>
+
+<footer>
+  <%= link_to 'Cargar un nuevo Pago', new_lote_contrato_pago_path(@lote) %>
+</footer>

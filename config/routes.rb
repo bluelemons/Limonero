@@ -1,12 +1,15 @@
 Limonero::Application.routes.draw do
 
+  resources :pagos
+
   resources :lotes do
-    resource :contrato
+    resource :contrato do
+      resources :pagos
+    end
   end
 
   resources :contratos do
     resources :compradores
-    # resources :pays
   end
 
   # la opcion :as crea helpers como por ej. personas.new_person_path

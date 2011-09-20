@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110823181429) do
+ActiveRecord::Schema.define(:version => 20110920154944) do
 
   create_table "avaluos", :force => true do |t|
     t.integer  "ncuotas"
@@ -43,6 +43,20 @@ ActiveRecord::Schema.define(:version => 20110823181429) do
     t.datetime "updated_at"
   end
 
+  create_table "expedientes_oficinas", :force => true do |t|
+    t.string   "nombre"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "expedientes_profesionals", :force => true do |t|
+    t.string   "titulo"
+    t.integer  "matricula"
+    t.integer  "persona_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "lotes", :force => true do |t|
     t.string   "manzana"
     t.string   "loteo"
@@ -52,6 +66,18 @@ ActiveRecord::Schema.define(:version => 20110823181429) do
     t.integer  "monto_cents"
     t.string   "monto_currency"
     t.float    "interes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "pagos", :force => true do |t|
+    t.decimal  "monto",       :precision => 10, :scale => 0
+    t.decimal  "recargo",     :precision => 10, :scale => 0
+    t.decimal  "tasa",        :precision => 10, :scale => 0
+    t.decimal  "otro",        :precision => 10, :scale => 0
+    t.decimal  "api",         :precision => 10, :scale => 0
+    t.date     "fecha"
+    t.integer  "contrato_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

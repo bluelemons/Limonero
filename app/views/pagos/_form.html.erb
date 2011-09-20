@@ -1,0 +1,10 @@
+<%= semantic_form_for([:lote, :contrato, @pago]) do |f| %>
+
+  <%= error_message(@pago)%>
+
+  <%= f.input :fecha, :as=>:string,:input_html => {:class => 'datepicker',:size=>10} %>
+  <%= f.inputs :monto, :recargo, :tasa, :otro, :api %>
+
+  <%= f.buttons :commit %>
+
+<% end %>
