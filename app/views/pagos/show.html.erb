@@ -1,40 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Monto:</b>
-  <%= @pago.monto %>
-</p>
-
-<p>
-  <b>Recargo:</b>
-  <%= @pago.recargo %>
-</p>
-
-<p>
-  <b>Tasa:</b>
-  <%= @pago.tasa %>
-</p>
-
-<p>
-  <b>Otro:</b>
-  <%= @pago.otro %>
-</p>
-
-<p>
-  <b>Api:</b>
-  <%= @pago.api %>
-</p>
-
-<p>
-  <b>Fecha:</b>
-  <%= @pago.fecha %>
-</p>
-
-<p>
-  <b>Contrato:</b>
-  <%= @pago.contrato_id %>
-</p>
-
+<%= render :partial => "/pagos/pago" %>
 
 <%= link_to 'Edit', edit_pago_path(@pago) %> |
 <%= link_to 'Back', pagos_path %>
