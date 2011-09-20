@@ -31,7 +31,7 @@ gem 'kaminari'
 # busqueda
 gem "meta_search","~> 1.1.x"
 # formularios
-gem 'formtastic', '~> 2.0.0.rc1'
+gem 'formtastic', '~> 2.0.0.rc5'
 # tablas
 gem "tabletastic"
 
