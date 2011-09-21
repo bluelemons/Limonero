@@ -43,20 +43,6 @@ ActiveRecord::Schema.define(:version => 20110920154944) do
     t.datetime "updated_at"
   end
 
-  create_table "expedientes_oficinas", :force => true do |t|
-    t.string   "nombre"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "expedientes_profesionals", :force => true do |t|
-    t.string   "titulo"
-    t.integer  "matricula"
-    t.integer  "persona_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "lotes", :force => true do |t|
     t.string   "manzana"
     t.string   "loteo"
