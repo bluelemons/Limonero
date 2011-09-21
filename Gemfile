@@ -36,19 +36,3 @@ gem 'thin'
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
 gem 'pry', :group => :development
-
-group :development, :test do
-  gem 'rspec-rails', '~> 2.5'
-  gem 'factory_girl_rails'
-  gem 'forgery'
-  gem 'guard-rspec'
-  gem 'rb-inotify'
-  gem 'libnotify'
-#  gem 'guard-livereload'
-end
-
-group :test do
-  gem 'capybara'
-  gem 'launchy'
-  gem 'shoulda-matchers'
-end
