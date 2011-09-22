@@ -9,9 +9,8 @@
       :input_html => {
         "data-pre" => @contrato.compradores.to_json, :only => [:id, :name] } %>
     <%= form.input :ncuotas %>
-    <%= form.input :cuota_cents %>
+    <%= form.input :cuota %>
     <%= form.input :cuota_inicial %>
-    <%= form.input :cuota_currency %>
     <%= form.input :interes %>
     <%= form.input :observaciones %>
   <% end %>

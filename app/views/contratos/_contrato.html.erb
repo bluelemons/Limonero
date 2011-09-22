@@ -21,7 +21,7 @@
 
 <p>
   <b>Valor de la cuota:</b>
-  <%= @contrato.cuota_cents %>
+  <%= @contrato.cuota %>
 </p>
 
 <h3>Compradores: </h3>
@@ -33,7 +33,7 @@
   </p>
 <% end %>
 
-   
+
 <h3>Deuda</h3>
 <%= link_to 'Ver Pagos', lote_contrato_pagos_path(@lote)%>
 <%= link_to 'Nuevo Pago', new_lote_contrato_pago_path(@lote)%>
