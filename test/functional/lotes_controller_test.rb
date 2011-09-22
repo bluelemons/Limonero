@@ -9,6 +9,7 @@ class LotesControllerTest < ActionController::TestCase
     get :index
     assert_response :success
     assert_not_nil assigns(:lotes)
+    assert_not_nil assigns(:search)
   end
 
   test "should get new" do
@@ -27,6 +28,9 @@ class LotesControllerTest < ActionController::TestCase
   test "should show lote" do
     get :show, id: @lote.to_param
     assert_response :success
+    assert_not_nil assigns(:lote)
+    assert_not_nil assigns(:contrato), "no asigna @contrato"
+    assert_not_nil assigns(:people), "no asigna @people (compradores)"
   end
 
   test "should get edit" do

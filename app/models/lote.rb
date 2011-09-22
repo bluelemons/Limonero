@@ -3,6 +3,7 @@
 class Lote < ActiveRecord::Base
   # El modelo central del sistema, guarda datos catastrales reales de cada lotee.
   has_one :contrato
+  belongs_to :loteo
 
   # Si el lotee está vendido, indica el nombre del comprador.
   def titular

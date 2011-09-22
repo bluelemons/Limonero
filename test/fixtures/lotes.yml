@@ -1,19 +1,17 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+one: # está vendido
+  loteo: adelina
+  manzana: 12
+  parcela: 3
+  partida: 13454-2552
+  ncuotas: 500
+  cuota: 200.99
+  interes: 10
 
-one:
-  loteo_id: 1
-  manzana: MyString
-  parcela: MyString
-  partida: MyString
-  ncuotas: 1
-  cuota: 9.99
-  interes: 9.99
-
-two:
-  loteo_id: 1
-  manzana: MyString
-  parcela: MyString
-  partida: MyString
-  ncuotas: 1
-  cuota: 9.99
-  interes: 9.99
+two: # no vendido
+  loteo: adelina
+  manzana: 12
+  parcela: 4
+  partida: 13454-2552
+  ncuotas: 100
+  cuota: 155.99
+  interes: 12.356
