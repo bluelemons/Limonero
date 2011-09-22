@@ -26,6 +26,8 @@ gem "meta_search","~> 1.1.x"
 gem 'formtastic', '~> 2.0.0.rc5'
 # tablas
 gem "tabletastic"
+# controladores
+gem 'inherited_resources'
 
 # Use thin as the web server
 gem 'thin'
