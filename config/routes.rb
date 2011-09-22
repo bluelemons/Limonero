@@ -1,6 +1,6 @@
 Limonero::Application.routes.draw do
 
-  resources :pagos
+  resources :loteos
 
   resources :lotes do
     resource :contrato do
@@ -8,12 +8,16 @@ Limonero::Application.routes.draw do
     end
   end
 
-  resources :contratos do
-    resources :compradores
+  resources :contratos, :shallow => true do
+    resources :pagos
   end
 
   # la opcion :as crea helpers como por ej. personas.new_person_path
   mount Personas::Engine => "/personas", :as => "personas"
+
+  # You can have the root of your site routed with "root"
+  # just remember to delete public/index.html.
+  root :to => 'lotes#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -61,10 +65,6 @@ Limonero::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-
-  # You can have the root of your site routed with "root"
-  # just remember to delete public/index.html.
-  root :to => 'lotes#index'
 
   # See how all your routes lay out with "rake routes"
 
