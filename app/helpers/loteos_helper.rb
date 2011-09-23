@@ -1,0 +1,2 @@
+module LoteosHelper
+end

@@ -1,0 +1,23 @@
+<h1>Listing loteos</h1>
+
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @loteos.each do |loteo| %>
+  <tr>
+    <td><%= loteo.nombre %></td>
+    <td><%= link_to 'Show', loteo %></td>
+    <td><%= link_to 'Edit', edit_loteo_path(loteo) %></td>
+    <td><%= link_to 'Destroy', loteo, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Loteo', new_loteo_path %>
