@@ -8,9 +8,11 @@ Limonero::Application.routes.draw do
     end
   end
 
-  resources :contratos, :shallow => true do
+  resources :contratos do
     resources :pagos
   end
+
+  resources :pagos
 
   # la opcion :as crea helpers como por ej. personas.new_person_path
   mount Personas::Engine => "/personas", :as => "personas"
