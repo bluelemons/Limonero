@@ -1,14 +1,14 @@
 class CreateLotes < ActiveRecord::Migration
   def change
     create_table :lotes do |t|
+      t.integer :loteo_id
       t.string :manzana
-      t.string :loteo
       t.string :parcela
       t.string :partida
       t.integer :ncuotas
-      t.integer :monto_cents
-      t.string :monto_currency
-      t.float :interes
+      t.decimal :cuota,         :precision => 10, :scale => 2
+      t.decimal :cuota_inicial, :precision => 10, :scale => 2
+      t.decimal :interes,       :precision => 6,  :scale => 4
 
       t.timestamps
     end

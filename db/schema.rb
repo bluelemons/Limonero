@@ -11,19 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110920154944) do
-
-  create_table "avaluos", :force => true do |t|
-    t.integer  "ncuotas"
-    t.integer  "cuota_cents"
-    t.integer  "cuota_inicial"
-    t.string   "cuota_currency", :limit => 3
-    t.float    "interes"
-    t.integer  "lote_id"
-    t.text     "observaciones"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(:version => 20110921181108) do
 
   create_table "compradores", :id => false, :force => true do |t|
     t.integer "person_id"
@@ -34,36 +22,41 @@ ActiveRecord::Schema.define(:version => 20110920154944) do
     t.date     "inicio"
     t.integer  "lote_id"
     t.integer  "ncuotas"
-    t.integer  "cuota_cents"
-    t.integer  "cuota_inicial"
-    t.string   "cuota_currency", :limit => 3
-    t.float    "interes"
+    t.decimal  "cuota",         :precision => 10, :scale => 2
+    t.decimal  "cuota_inicial", :precision => 10, :scale => 2
+    t.decimal  "interes",       :precision => 6,  :scale => 3
     t.text     "observaciones"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  create_table "loteos", :force => true do |t|
+    t.string   "nombre"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "lotes", :force => true do |t|
+    t.integer  "loteo_id"
     t.string   "manzana"
-    t.string   "loteo"
     t.string   "parcela"
     t.string   "partida"
     t.integer  "ncuotas"
-    t.integer  "monto_cents"
-    t.string   "monto_currency"
-    t.float    "interes"
+    t.decimal  "cuota",         :precision => 10, :scale => 2
+    t.decimal  "cuota_inicial", :precision => 10, :scale => 2
+    t.decimal  "interes",       :precision => 6,  :scale => 4
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "pagos", :force => true do |t|
-    t.decimal  "monto",       :precision => 10, :scale => 0
-    t.decimal  "recargo",     :precision => 10, :scale => 0
-    t.decimal  "tasa",        :precision => 10, :scale => 0
-    t.decimal  "otro",        :precision => 10, :scale => 0
-    t.decimal  "api",         :precision => 10, :scale => 0
-    t.date     "fecha"
     t.integer  "contrato_id"
+    t.decimal  "monto",       :precision => 7, :scale => 2
+    t.decimal  "recargo",     :precision => 7, :scale => 2
+    t.decimal  "tasa",        :precision => 7, :scale => 2
+    t.decimal  "api",         :precision => 7, :scale => 2
+    t.decimal  "otro",        :precision => 7, :scale => 2
+    t.date     "fecha"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
