@@ -1,0 +1,8 @@
+one:
+  inicio: 2011-09-21
+  lote: one
+  cuota_inicial: 300
+  ncuotas: 500
+  cuota: 200.99
+  interes: 10
+  observaciones: Una buena venta

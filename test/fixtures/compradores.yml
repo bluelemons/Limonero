@@ -1,0 +1,3 @@
+one:
+  person_id: 1
+  contrato_id: <%= ActiveRecord::Fixtures.identify(:one) %>
