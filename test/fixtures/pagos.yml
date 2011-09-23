@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+julio:
+  contrato: one
+  monto: 500
+  recargo: 0
+  tasa: 16.75
+  api: 3.97
+  otro: 300
+  fecha: 2011-07-12
+
+agosto:
+  contrato: one
+  monto: 500
+  recargo: 30
+  tasa: 16.75
+  api: 3.97
+  otro: 300
+  fecha: 2011-09-23
