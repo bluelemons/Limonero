@@ -8,7 +8,7 @@ class ContratoTest < ActiveSupport::TestCase
   test "asociaciones" do
     assert_instance_of Lote, @contrato.lote
     @contrato.compradores.each do |comprador|
-      assert_instance_of Person, comprador
+      assert_instance_of Personas::Person, comprador
     end
   end
 end
