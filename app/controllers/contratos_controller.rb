@@ -11,5 +11,4 @@ class ContratosController < InheritedResources::Base
       format.json { render json: @contratos }
     end
   end
-
 end
