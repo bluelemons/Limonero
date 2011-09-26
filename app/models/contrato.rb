@@ -7,8 +7,13 @@ class Contrato < ActiveRecord::Base
 
   attr_reader :compradores_tokens
 
+  validates :compradores, :presence => true
   def compradores_tokens=(ids)
     self.comprador_ids = ids.split(",")
+  end
+
+  def titular
+   compradores.first.name
   end
 
   def cuotas_restantes
