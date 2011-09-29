@@ -17,7 +17,7 @@ gem 'rails-i18n'
 
 # Javascripts runtime
 gem 'therubyracer'
-gem 'activeadmin'
+gem 'activeadmin',"0.3.2"
 gem 'jquery-rails'
 
 # paginacion
