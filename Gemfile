@@ -13,9 +13,11 @@ group :assets do
   gem "compass", "~> 0.12.alpha.0"
 end
 
+gem 'rails-i18n'
+
 # Javascripts runtime
 gem 'therubyracer'
-
+gem 'activeadmin'
 gem 'jquery-rails'
 
 # paginacion
@@ -23,7 +25,7 @@ gem 'kaminari'
 # busqueda
 gem "meta_search","~> 1.1.x"
 # formularios
-gem 'formtastic', '~> 2.0.0.rc5'
+gem 'formtastic', "<= 1.2.4"
 # tablas
 gem "tabletastic"
 # controladores

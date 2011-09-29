@@ -1,5 +1,9 @@
 Limonero::Application.routes.draw do
 
+  ActiveAdmin.routes(self)
+
+  devise_for :admines_useres, ActiveAdmin::Devise.config
+
   resources :loteos
 
   resources :lotes do
